@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Me!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            transition: background-color 0.5s ease;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        button {
+            font-size: 20px;
+            padding: 15px 25px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff4081;
+            color: white;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e91e63;
+            transform: scale(1.1);
+        }
+        #gif-container {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Click the Button for a Surprise!</h1>
+        <button onclick="surprise()">Surprise Me!</button>
+        <div id="gif-container"></div>
+    </div>
+
+    <script>
+        const messages = [
+            "Boom! Did you expect this?",
+            "Surprise! 🎉",
+            "You're awesome!",
+            "Here's a virtual high-five! 🖐",
+            "Oops! Something fun just happened.",
+            "Keep smiling! 😊",
+            "Magic happens when you least expect it!"
+        ];
+
+        const colors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A8", "#FFD700", "#00FFFF", "#8A2BE2"];
+
+        const gifs = [
+            "https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif",
+            "https://media.giphy.com/media/l0HU20BZ6LbSEITza/giphy.gif",
+            "https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif",
+            "https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif",
+            "https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif"
+        ];
+
+        function surprise() {
+            // Change background color
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+            // Show a random message
+            alert(messages[Math.floor(Math.random() * messages.length)]);
+
+            // Show a random GIF
+            const gifContainer = document.getElementById("gif-container");
+            gifContainer.innerHTML = `<img src="${gifs[Math.floor(Math.random() * gifs.length)]}" alt="Surprise GIF">`;
+
+            // Play a fun sound
+            const sound = new Audio("https://www.fesliyanstudios.com/play-mp3/4387"); // Fun sound effect
+            sound.play();
+        }
+    </script>
+
+</body>
+</html>
